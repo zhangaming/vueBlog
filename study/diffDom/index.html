@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id ="app"></div>
+</body>
+</html>
+<script src="./vertualDom.js"></script>
+<script src="./diffDom.js"></script>
+<script>
+    const vertualDom = Element.createElement(
+  "ul",
+  {
+    class: "ul-warper"
+  },
+  [
+    Element.createElement(
+      "li",
+      {
+        class: "li-warper",
+        style: "color:red"
+      },
+      [
+        Element.createElement("p", {}, ["a"]),
+        Element.createElement("p", {}, ["b"])
+      ]
+    ),
+    Element.createElement(
+      "li",
+      {
+        class: "li-warper"
+      },
+      ["2"]
+    )
+  ]
+);
+const vertualDom2 = Element.createElement(
+  "ul",
+  {
+    // class: "change"
+  },
+  [
+    Element.createElement(
+      "li",
+      {
+        class: "li-warper2",
+        style: "color:pink"
+      },
+      [
+        Element.createElement("span", {}, ["a"]),
+        Element.createElement("p", {}, ["v"])
+      ]
+    ),
+    Element.createElement(
+      "li",
+      {
+        class: "li-warper2"
+      },
+      ["c"]
+    )
+  ]
+);
+
+
+console.log(vertualDom)
+const dom = vertualDom.render();
+console.log(dom)
+const app = document.getElementById("app");
+app.appendChild(dom);
+const _diff = new Diff(vertualDom,vertualDom2)
+console.log(_diff)
+</script>
