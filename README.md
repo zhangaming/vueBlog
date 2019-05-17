@@ -22,8 +22,8 @@ admin: vue-cli3 vue2.x element
 
 # 客户端效果
 
-![image](https://github.com/z253573760/vue-blog/blob/master/src/assets/image/blog.gif?raw=true)
+![image](https://github.com/zhangaming/vueBlog/blob/master/src/assets/image/blog.gif?raw=true)
 
 # 后台管理
 
-![image](https://github.com/z253573760/vue-blog/blob/master/src/assets/image/admin.png?raw=true)
+![image](https://github.com/zhangaming/vueBlog/blob/master/src/assets/image/pc.gif?raw=true)

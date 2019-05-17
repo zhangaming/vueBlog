@@ -23,7 +23,7 @@ export default [
     name: "skill",
     meta: {
       title: "学习",
-      icon: require("@/assets/image/铅笔.png")
+      icon: require("@/assets/image/学习.png")
     },
     component: () => import("@/views/Skill")
   },
