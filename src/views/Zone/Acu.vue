@@ -47,7 +47,12 @@ export default {
       });
     },
     async onLoad() {
-      const { data } = await getZoneList(this.pageSize, this.current + 1);
+      let param = {
+        type: 0,
+        page: this.current + 1,
+        pageNum: this.pageSize
+      };
+      const { data } = await getZoneList(param);
       this.loading = false;
       this.imageList.push(...data.rows);
       this.current = data.current;

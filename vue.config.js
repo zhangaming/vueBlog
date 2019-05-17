@@ -79,10 +79,21 @@ module.exports = {
     //  host: "localhost",
     proxy: {
       // 配置跨域处理 可以设置多个
+      // "/api": {
+      //   target: "http://119.29.165.40",
+      //   //target: "http://localhost:7001",
+      //   changeOrigin: true,
+      //   "^/api": ""
+      // },
+      // 配置跨域处理 可以设置多个
       "/api": {
-        target: "http://119.29.165.40",
+        target: "http://localhost:3000",
         //target: "http://localhost:7001",
-        changeOrigin: true
+        changeOrigin: true,
+        pathRewrite: {
+          // 重写路径
+          "^/api": ""
+        }
       }
     }
   }

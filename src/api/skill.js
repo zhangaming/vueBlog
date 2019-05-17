@@ -1,5 +1,5 @@
 import axios from "../utils/request";
-
-export const getSkillList = function() {
-  return axios.get(`/skill`);
+import qs from "qs";
+export const getSkillList = function(data) {
+  return axios.post(`/getSkill`, qs.stringify(data));
 };

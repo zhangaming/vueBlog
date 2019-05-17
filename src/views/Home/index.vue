@@ -3,8 +3,8 @@
        @touchmove.prevent="()=>{}">
     <vue-particles color="#fff"
                    :particleOpacity="0.7"
-                   :particlesNumber="60"
-                   shapeType="circle"
+                   :particlesNumber="100"
+                   shapeType="star"
                    :particleSize="4"
                    linesColor="#fff"
                    :linesWidth="1"

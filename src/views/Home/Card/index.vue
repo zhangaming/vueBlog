@@ -4,9 +4,10 @@
       <van-row :gutter="16">
         <van-col span="16"
                  class="holiday-warpper ">
-          <div class="item">{{city}} {{wether.tem1}} {{wether.wea}} </div>
+          <div class="item">{{city}} {{weather.wendu}}℃ {{weather.type}} </div>
           <div class="item"
-               style="text-align:left">{{wether.air_tips}}</div>
+               style="text-align:left">
+            <p>{{forecast.high}} {{forecast.low}} {{forecast.fengxiang}}</p>{{weather.ganmao}}</div>
         </van-col>
         <van-col span="4"
                  class="calendar-warpper">
@@ -53,10 +54,16 @@ export default {
   data() {
     return {
       city: "厦门",
-      wether: {
+      weather: {
         wea: "",
         tem1: "",
         air_tips: ""
+      },
+      forecast: {
+        high: "",
+        low: "",
+        fengxiang: "",
+        fengli: ""
       }
     };
   },
@@ -67,10 +74,21 @@ export default {
   },
   methods: {
     async getWether() {
-      const { data } = await getWether();
-      const today = data.data[0];
-      this.city = data.city;
-      this.wether = today;
+      const res = await getWether();
+      let result = res.data.data;
+      let obj = {
+        type: result.forecast[0].type,
+        wendu: result.wendu,
+        ganmao: result.ganmao
+      };
+      this.city = result.city;
+      this.weather = obj;
+      this.forecast = {
+        high: result.forecast[0].high,
+        low: result.forecast[0].low,
+        fengxiang: result.forecast[0].fengxiang,
+        fengli: result.forecast[0].fengli
+      };
     }
   },
   computed: {

@@ -1,9 +1,12 @@
 import axios from "../utils/request";
 import qs from "qs";
-export const getArticleList = function(pageOpts) {
-  return axios.get(`/article?${qs.stringify(pageOpts)}`);
+export const getArticleList = function(data) {
+  return axios.post(`/getArticleList`, qs.stringify(data));
 };
 
 export const getArticle = function(id) {
-  return axios.get(`/article/${id}`);
+  let data = qs.stringify({
+    id: id
+  });
+  return axios.post(`/getArticleView`, data);
 };

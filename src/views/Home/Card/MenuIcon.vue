@@ -51,7 +51,7 @@ export default {
       transform: translateX(-50%);
       width: px2rem(90px) !important;
       height: px2rem(90px) !important;
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.2);
       border-radius: px2rem(20px);
       .icon {
         position: relative;

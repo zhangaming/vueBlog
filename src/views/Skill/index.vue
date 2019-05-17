@@ -15,7 +15,7 @@
                         type="default"
                         @click="linkto(props.item)"
                         class="btn">
-              {{props.item.title}}
+              {{props.item.skill}}
             </van-button>
           </template>
         </grid>
@@ -41,8 +41,12 @@ export default {
       // href && window.open(href);
     },
     async getSkillList() {
-      const { data } = await getSkillList();
-      this.showList = data;
+      let param = {
+        page: 1,
+        pageNum: 20
+      };
+      const { data } = await getSkillList(param);
+      this.showList = data.rows;
     }
   },
   computed: {

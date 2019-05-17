@@ -5,8 +5,8 @@
     <van-cell v-for="(item,key) in rows"
               :key="key"
               :title="item.title"
-              :value="item.update_time"
-              @click="linkTo(item.id)" />
+              :value="item.updateTime"
+              @click="linkTo(item._id)" />
   </van-list>
 </template>
 <script>
@@ -20,7 +20,7 @@ export default {
       pageOpts: {
         current: 1,
         pageSize: 10,
-        status: 1
+        type: ""
       },
       rows: []
     };

@@ -5,5 +5,5 @@ export const getIp = function() {
 };
 
 export const getWether = function() {
-  return axios.get(`/wether`);
+  return axios.get(`/weather`);
 };
