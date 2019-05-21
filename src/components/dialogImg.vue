@@ -1,6 +1,7 @@
 <template>
-  <div class="dialogImg" v-if="show">
-    <img  :src="imgSrc"/>   
+  <div class="dialogImg"
+       v-if="show">
+    <img :src="imgSrc" />
   </div>
 </template>
 

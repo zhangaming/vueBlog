@@ -66,12 +66,31 @@ export default [
     ]
   },
   {
-    path: "component",
-    name: "component",
+    path: "/message",
+    name: "message",
     meta: {
-      title: "暂无",
-      icon: require("@/assets/image/蜡笔.png")
-    }
-    // component: () => import("@/views/Article")
+      title: "留言板",
+      icon: require("@/assets/image/留言板.png")
+    },
+    component: () => import("@/views/Message"),
+    children: [
+      {
+        path: "/",
+        component: () => import("@/views/Message/Acu")
+      },
+      {
+        path: "list",
+        component: () => import("@/views/Message/List")
+      }
+    ]
   }
+  // {
+  //   path: "component",
+  //   name: "component",
+  //   meta: {
+  //     title: "暂无",
+  //     icon: require("@/assets/image/蜡笔.png")
+  //   }
+  //   // component: () => import("@/views/Article")
+  // }
 ];
