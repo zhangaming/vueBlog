@@ -1,7 +1,7 @@
 // vue.config.js
 
 const path = require("path");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 function resolve(dir) {
   return path.join(__dirname, dir);
@@ -9,7 +9,8 @@ function resolve(dir) {
 
 module.exports = {
   runtimeCompiler: true, //是否使用包含运行时编译器的 Vue 构建版本
-  baseUrl: process.env.NODE_ENV === "production" ? "/" : "/",
+  baseUrl: process.env.NODE_ENV === "production" ? "/blog" : "/",
+  outputDir: process.env.NODE_ENV === "production" ? "blog" : "/",
   // baseUrl: process.env.NODE_ENV === "production" ? "/" : "/",
   productionSourceMap: false, //不在production环境使用SourceMap
   lintOnSave: process.env.NODE_ENV !== "production",
@@ -19,12 +20,12 @@ module.exports = {
     //删除console插件
     let plugins = [
       //只有打包生产环境才需要将console删除
-      new UglifyJsPlugin({
-        uglifyOptions: {
+      new TerserPlugin({
+        terserOptions: {
+          warnings: false,
           compress: {
-            warnings: false,
             drop_console: true,
-            drop_debugger: true
+            drop_debugger: false
           },
           output: {
             // 去掉注释内容
@@ -87,8 +88,8 @@ module.exports = {
       // },
       // 配置跨域处理 可以设置多个
       "/api": {
-        target: "http://localhost:3000",
-        //target: "http://localhost:7001",
+        // target: "http://localhost:3000",
+        target: "http://182.61.48.129:3000",
         changeOrigin: true,
         pathRewrite: {
           // 重写路径

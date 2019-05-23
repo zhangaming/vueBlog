@@ -45,27 +45,13 @@
 }
 </style>
 <script>
-import { mapState } from "vuex";
-import { getWether } from "@/api/common";
+import { mapState, mapActions } from "vuex";
 import Calendar from "./Calendar";
 import MenuIcon from "./MenuIcon";
 export default {
   components: { Calendar, MenuIcon },
   data() {
-    return {
-      city: "厦门",
-      weather: {
-        wea: "",
-        tem1: "",
-        air_tips: ""
-      },
-      forecast: {
-        high: "",
-        low: "",
-        fengxiang: "",
-        fengli: ""
-      }
-    };
+    return {};
   },
   async created() {
     this.$loading.show();
@@ -73,42 +59,10 @@ export default {
     this.$loading.hide();
   },
   methods: {
-    async getWether() {
-      try {
-        const res = await getWether();
-        let result = res.data.data;
-        let obj = {
-          type: result.forecast[0].type,
-          wendu: result.wendu,
-          ganmao: result.ganmao
-        };
-        this.city = result.city;
-        this.weather = obj;
-        this.forecast = {
-          high: result.forecast[0].high,
-          low: result.forecast[0].low,
-          fengxiang: result.forecast[0].fengxiang,
-          fengli: result.forecast[0].fengli
-        };
-      } catch (err) {
-        let obj = {
-          type: "多云",
-          wendu: 20,
-          ganmao: "接口报错 这是默认信息"
-        };
-        this.city = "厦门";
-        this.weather = obj;
-        this.forecast = {
-          high: 20,
-          low: 20,
-          fengxiang: "东风",
-          fengli: "0级"
-        };
-      }
-    }
+    ...mapActions(["getWether"])
   },
   computed: {
-    ...mapState(["ip"])
+    ...mapState(["city", "weather", "forecast"])
   }
 };
 </script>

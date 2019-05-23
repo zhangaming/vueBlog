@@ -10,7 +10,11 @@
         <!-- <li class="type-list">热门</li> -->
       </ul>
       <div class="cmt-list-border"></div>
+
       <div class="cmt-list-number">
+        <span class="comment-number">
+          共
+          <span class="cy-number">{{count}}</span>人参与</span>
         <span class="comment-number">
           共
           <span class="cy-number">{{total}}</span>条评论</span>
@@ -41,7 +45,7 @@
 </template>
 <script>
 import { getMessage } from "@/api/message";
-import { mapMutations } from "vuex";
+import { mapMutations, mapState } from "vuex";
 
 export default {
   data() {
@@ -60,6 +64,11 @@ export default {
   beforeRouteLeave(to, from, next) {
     if (this.imagePreview != null) this.imagePreview.close();
     next();
+  },
+  computed: {
+    ...mapState({
+      count: "count"
+    })
   },
   methods: {
     ...mapMutations(["changeNavShow"]),
@@ -191,7 +200,7 @@ export default {
     .cmt-list-number {
       position: absolute;
       right: 0;
-      bottom: 0;
+      bottom: -4px;
       .comment-number {
         color: #313131;
         font-size: px2rem(28px);
