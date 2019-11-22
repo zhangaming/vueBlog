@@ -14,7 +14,7 @@
     "countup": "^1.8.2",
     "dayjs": "^1.8.13",
     "fastclick": "^1.0.6",
-    "vant": "^1.4.8",
+    "vant": "^2.1.8",
     "vue": "^2.5.17",
     "vue-js-grid": "^1.0.1",
     "vue-particles": "^1.0.9",
