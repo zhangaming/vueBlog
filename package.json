@@ -28,7 +28,7 @@
     "@vue/eslint-config-prettier": "^3.0.3",
     "babel-plugin-import": "^1.8.0",
     "babel-polyfill": "^6.26.0",
-    "mavon-editor": "^2.7.2",
+    "mavon-editor": "^2.8.2",
     "node-sass": "^4.9.3",
     "sass-loader": "^7.1.0",
     "terser-webpack-plugin": "^1.2.4",
